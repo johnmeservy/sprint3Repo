@@ -1,0 +1,18 @@
+<%inherit file="base.htm"/>
+
+<!--nothing to import-->
+
+<%block name="content">
+	<table id="manage_table" class = "table table-striped table-bordered">
+	    <tr>
+	      <th>ID</th>
+	      <th>Due Date</th>
+	    </tr>
+		%for overdue in overdues:
+		<tr>
+            <td> ${ overdue[0] }</td>
+			<td> ${ overdue[5] } </td>
+		</tr>
+		%endfor
+	</table>
+</%block>

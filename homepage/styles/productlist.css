@@ -1,0 +1,33 @@
+.item_container {
+    display: inline-block;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    margin: 12px;
+    padding: 5px;
+    width: 210px;
+    height: 350px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.item_container > a > img {
+    height: 200px;
+    width: 200px;
+    vertical-align: center;
+}
+
+#current_price{
+    color: green;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+#product{
+    background-color: #161713;
+    color: white;
+    font-size: 20pt;
+    font-weight: bold;
+    width: 200;
+}

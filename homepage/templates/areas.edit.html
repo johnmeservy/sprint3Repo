@@ -1,0 +1,37 @@
+<%inherit file="base.htm"/>
+
+<!--nothing to import-->
+
+<%block name="content">
+
+<h2>Edit Area: ${area.name}</h2>
+	<form class= "edit_table" method = "POST" >
+
+		## <table id="edit_form">
+		## 	${ form }
+		## </table>
+
+		%for field in form:
+        <div class="form-group">
+            <label for=${field.name}>${field.label} ${field.errors}</label>
+            ${ field }
+        </div>
+    	%endfor
+				<hr>
+				<button class="btn btn-success" type="submit">Submit</button>
+				<a class="btn btn-default" href="/homepage/areas">Cancel</a>
+				<a href = "/homepage/areas.delete/${ area.id }/" class="btn btn-danger pull-right">Delete</a>
+	</form>
+</%block>
+
+<%block name="jumbotron">
+</%block>
+
+<%block name="content_left">
+</%block>
+
+<%block name="content_center">
+</%block>
+
+<%block name="content_right">
+</%block>

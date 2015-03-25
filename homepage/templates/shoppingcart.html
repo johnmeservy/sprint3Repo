@@ -1,0 +1,40 @@
+<%inherit file="base_ajax.htm"/>
+
+<%block name="content">
+	<form id="loginform" method="POST" action="/homepage/login.loginform/">
+			<table id="manage_table_shopping" class = "table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Photo</th>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        %for key in products:
+        <% p = products[key] %>
+          <tr>
+            <td><img class="text-center" height="75" src="${STATIC_URL}homepage/media/product_images/${ p.photo }" alt=""></td>
+            <td>${ p.name }</td>
+            <td>${ cart[str(p.id)] }</td>
+            <td>$ ${ p.current_price * cart[str(p.id)] }</td>
+            <td width="15%" nowrap>
+              <a href="/homepage/shoppingcart.delete/${ p.id }/" data-id="${ p.id }" class="btn btn-danger">Remove</a>
+            </td>
+          </tr>
+        %endfor
+      </tbody>
+  </table>
+
+  <div id="Total" class="pull-right">
+  <h4>Total Amount: $${ amount }</h4>
+  </div>
+    <div class="btn-group">
+      <form method="POST">
+        <a class="btn btn-warning" type="Submit" href="/homepage/checkout/">Checkout</a>
+      </form>
+    </div>
+  </form>
+</%block>
