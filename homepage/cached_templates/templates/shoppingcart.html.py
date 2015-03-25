@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427322654.669007
+_modified_time = 1427323621.717161
 _enable_loop = True
 _template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/shoppingcart.html'
 _template_uri = 'shoppingcart.html'
@@ -28,13 +28,13 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        cart = context.get('cart', UNDEFINED)
-        str = context.get('str', UNDEFINED)
-        products = context.get('products', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        products = context.get('products', UNDEFINED)
+        cart = context.get('cart', UNDEFINED)
+        amount = context.get('amount', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        amount = context.get('amount', UNDEFINED)
+        str = context.get('str', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -50,13 +50,13 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        cart = context.get('cart', UNDEFINED)
-        str = context.get('str', UNDEFINED)
-        products = context.get('products', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        products = context.get('products', UNDEFINED)
+        cart = context.get('cart', UNDEFINED)
+        amount = context.get('amount', UNDEFINED)
         def content():
             return render_content(context)
-        amount = context.get('amount', UNDEFINED)
+        str = context.get('str', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\t<form id="loginform" method="POST" action="/homepage/login.loginform/">\r\n\t\t\t<table id="manage_table_shopping" class = "table table-striped table-bordered">\r\n      <thead>\r\n        <tr>\r\n          <th>Photo</th>\r\n          <th>Product Name</th>\r\n          <th>Quantity</th>\r\n          <th>Total</th>\r\n          <th>Actions</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n')
         for key in products:
@@ -88,6 +88,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"64": 17, "66": 17, "67": 19, "68": 19, "69": 19, "70": 19, "71": 20, "72": 20, "73": 21, "74": 21, "75": 22, "76": 22, "77": 24, "78": 24, "79": 24, "80": 24, "81": 28, "82": 32, "83": 32, "89": 83, "27": 0, "39": 1, "44": 40, "50": 3, "61": 3, "62": 16, "63": 17}, "uri": "shoppingcart.html", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/shoppingcart.html", "source_encoding": "ascii"}
+{"filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/shoppingcart.html", "uri": "shoppingcart.html", "source_encoding": "ascii", "line_map": {"64": 17, "66": 17, "67": 19, "68": 19, "69": 19, "70": 19, "71": 20, "72": 20, "73": 21, "74": 21, "75": 22, "76": 22, "77": 24, "78": 24, "79": 24, "80": 24, "81": 28, "82": 32, "83": 32, "89": 83, "27": 0, "39": 1, "44": 40, "50": 3, "61": 3, "62": 16, "63": 17}}
 __M_END_METADATA
 """

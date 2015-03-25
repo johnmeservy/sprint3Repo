@@ -59,7 +59,7 @@ MIDDLEWARE_CLASSES = (
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'meservy@gmail.com'
-EMAIL_HOST_PASSWORD = 'Apple5!'
+EMAIL_HOST_PASSWORD = 'Apples5!'
 EMAIL_PORT = 587
 
 DEBUG_PROPAGATE_EXCEPTIONS = DEBUG  # never set this True on a live site
