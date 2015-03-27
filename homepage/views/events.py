@@ -44,32 +44,32 @@ def edit(request):
     # create the form object
     # fill the form initially with data
     form = EventEditForm(initial={
-        'event_name': event.event_name,
-        'event_description': event.event_description,
+        'name': event.name,
+        'description': event.description,
         'start_date': event.start_date,
         'end_date': event.end_date,
         'map_file_name': event.map_file_name,
         'venue_name': event.venue_name,
-        'address': event.address,
+        'address1': event.address1,
         'city': event.city,
         'state': event.state,
-        'zip': event.zip
+        'zipcode': event.zipcode
     })
     if request.method == 'POST':
         form = EventEditForm(request.POST)
         form.eventid = event.id
         if form.is_valid():
             # make the changes on the event object
-            event.event_name = form.cleaned_data['event_name']
-            event.event_description = form.cleaned_data['event_description']
+            event.name = form.cleaned_data['name']
+            event.description = form.cleaned_data['description']
             event.start_date = form.cleaned_data['start_date']
             event.end_date = form.cleaned_data['end_date']
             event.map_file_name = form.cleaned_data['map_file_name']
             event.venue_name = form.cleaned_data['venue_name']
-            event.address = form.cleaned_data['address']
+            event.address1 = form.cleaned_data['address1']
             event.city = form.cleaned_data['city']
             event.state = form.cleaned_data['state']
-            event.zip = form.cleaned_data['zip']
+            event.zipcode = form.cleaned_data['zipcode']
             event.save()
             return HttpResponseRedirect('/homepage/events/')
 
@@ -80,23 +80,23 @@ def edit(request):
 
 
 class EventEditForm(forms.Form):
-    event_name = forms.CharField(required=True, min_length=1, max_length=100, label="Event Name", widget=forms.TextInput(attrs={'placeholder': 'Event Name', 'class': 'form-control'}))
-    event_description = forms.CharField(required=False, min_length=1, max_length=250, label="Event Description", widget=forms.TextInput(attrs={'placeholder': 'Event Description', 'class': 'form-control'}))
+    name = forms.CharField(required=True, min_length=1, max_length=100, label="Event Name", widget=forms.TextInput(attrs={'placeholder': 'Event Name', 'class': 'form-control'}))
+    description = forms.CharField(required=False, min_length=1, max_length=250, label="Event Description", widget=forms.TextInput(attrs={'placeholder': 'Event Description', 'class': 'form-control'}))
     start_date = forms.DateField(required=True, label="Start Date", widget=forms.TextInput(attrs={'placeholder': 'Start Date', 'class': 'form-control'}))
     end_date = forms.DateField(required=True, label="End Date", widget=forms.TextInput(attrs={'placeholder': 'End Date', 'class': 'form-control'}))
     map_file_name = forms.CharField(required=False, min_length=1, max_length=100, label="Map File Name", widget=forms.TextInput(attrs={'placeholder': 'Map File Name', 'class': 'form-control '}))
     venue_name = forms.CharField(required=False, min_length=1, max_length=100, label="Venue Name", widget=forms.TextInput(attrs={'placeholder': 'Venue Name', 'class': 'form-control '}))
-    address = forms.CharField(required=True, min_length=1, max_length=100, label="Address", widget=forms.TextInput(attrs={'placeholder': 'Address', 'class': 'form-control'}))
+    address1 = forms.CharField(required=True, min_length=1, max_length=100, label="address1", widget=forms.TextInput(attrs={'placeholder': 'address1', 'class': 'form-control'}))
     city = forms.CharField(required=True, min_length=1, max_length=100, label="City", widget=forms.TextInput(attrs={'placeholder': 'City', 'class': 'form-control'}))
     state = forms.CharField(required=True, min_length=1, max_length=100, label="State", widget=forms.TextInput(attrs={'placeholder': 'State', 'class': 'form-control'}))
-    zip = forms.CharField(required=True, label="Zip Code", widget=forms.TextInput(attrs={'placeholder': 'Zip Code', 'class': 'form-control'}))
+    zipcode = forms.CharField(required=True, label="zipcode Code", widget=forms.TextInput(attrs={'placeholder': 'zipcode Code', 'class': 'form-control'}))
 
     def clean_data(self):
-        # check if the zip is not 5
-        if len(self.cleaned_data['zip']) == 5:
-            raise forms.ValidationError('Invalid Zip Code.')
+        # check if the zipcode is not 5
+        if len(self.cleaned_data['zipcode']) == 5:
+            raise forms.ValidationError('Invalid zipcode Code.')
 
-        return self.cleaned_data['zip']
+        return self.cleaned_data['zipcode']
 
 
 ##########################################################################
@@ -110,16 +110,16 @@ def create(request):
 
     '''Creates a new event'''
     event = hmod.Event()
-    event.event_name = ''
-    event.event_description = ''
+    event.name = ''
+    event.description = ''
     # event.start_date = ''
     # event.end_date = ''
     event.map_file_name = ''
     event.venue_name = ''
-    event.address = ''
+    event.address1 = ''
     event.city = ''
     event.state = ''
-    # event.zip = ''
+    # event.zipcode = ''
     event.save()
 
     return HttpResponseRedirect('/homepage/events.edit/{}/'.format(event.id))

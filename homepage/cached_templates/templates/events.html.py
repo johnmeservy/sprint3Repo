@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425783952.307647
+_modified_time = 1427487641.154644
 _enable_loop = True
 _template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/events.html'
 _template_uri = 'events.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_right', 'content_left', 'content_center', 'content', 'jumbotron']
+_exports = ['content_center', 'content_right', 'content_left', 'jumbotron', 'content']
 
 
 def _mako_get_namespace(context, name):
@@ -28,15 +28,15 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
         events = context.get('events', UNDEFINED)
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -71,6 +71,18 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content_center(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_center():
+            return render_content_center(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content_right(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -95,11 +107,11 @@ def render_content_left(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_center(context,**pageargs):
+def render_jumbotron(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_center():
-            return render_content_center(context)
+        def jumbotron():
+            return render_jumbotron(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -119,7 +131,7 @@ def render_content(context,**pageargs):
             __M_writer('\t\t\t\t\t<tr>\r\n            <td> ')
             __M_writer(str( event.id ))
             __M_writer('</td>\r\n            <td> ')
-            __M_writer(str( event.event_name ))
+            __M_writer(str( event.name ))
             __M_writer(' </td>\r\n\t\t\t\t\t\t<td> ')
             __M_writer(str( event.start_date ))
             __M_writer(' </td>\r\n\t\t\t\t\t\t<td> ')
@@ -137,20 +149,8 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_jumbotron(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def jumbotron():
-            return render_jumbotron(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"line_map": {"128": 29, "129": 29, "130": 30, "131": 30, "68": 49, "133": 32, "134": 36, "74": 48, "140": 39, "80": 48, "152": 146, "146": 39, "86": 42, "127": 28, "132": 32, "27": 0, "92": 42, "122": 26, "98": 45, "104": 45, "63": 46, "43": 1, "110": 5, "48": 37, "117": 5, "118": 23, "119": 24, "120": 25, "121": 25, "58": 43, "123": 26, "124": 27, "125": 27, "126": 28, "53": 40}, "uri": "events.html", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/events.html", "source_encoding": "ascii"}
+{"source_encoding": "ascii", "line_map": {"129": 5, "130": 23, "131": 24, "68": 49, "133": 25, "134": 26, "135": 26, "136": 27, "137": 27, "74": 45, "139": 28, "140": 29, "141": 29, "142": 30, "143": 30, "80": 45, "145": 32, "146": 36, "86": 48, "152": 146, "132": 25, "27": 0, "92": 48, "122": 5, "144": 32, "98": 42, "104": 42, "43": 1, "110": 39, "48": 37, "116": 39, "53": 40, "58": 43, "138": 28, "63": 46}, "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/events.html", "uri": "events.html"}
 __M_END_METADATA
 """

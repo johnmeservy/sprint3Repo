@@ -158,6 +158,19 @@ for data in [
 
 # populating data for events
 for data in [
+    {'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'name': 'Bakery', 'place_number': '1'},
+    {'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'name': 'Mayflower Exhibit', 'place_number': '2'},
+    {'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'name': 'Printing Press', 'place_number': '3'},
+    {'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'name': 'Blacksmith', 'place_number': '4'},
+    {'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'name': 'Candle Maker', 'place_number': '5'},
+]:
+    d = hmod.Area()
+    for k, v in data.items():
+        setattr(d, k, v)
+    d.save()
+
+# populating data for products
+for data in [
     {'name': 'Cannonball', 'category': 'Weapons', 'current_price': '201.15', 'product_type': 'Mass Produced', 'producer_name': 'Colonial Heritage Foundation', 'quantity_on_hand': '40', 'date_made': '2015-03-06', 'order_form_name': 'Pittsburgh', 'production_time': '2015-03-06', 'photo': 'product1.jpg'},
     {'name': 'Pistol', 'category': 'Weapons', 'current_price': '22.45', 'product_type': 'Made to Order', 'producer_name': 'Colonial Heritage Foundation', 'quantity_on_hand': '4', 'date_made': '2015-03-06', 'order_form_name': 'Pittsburgh', 'production_time': '2015-03-06', 'photo': 'product2.jpg'},
     {'name': 'Waistcoat', 'category': 'Clothing', 'current_price': '30.16', 'product_type': 'Mass Produced', 'producer_name': 'Colonial Heritage Foundation', 'quantity_on_hand': '15', 'date_made': '2015-03-06', 'order_form_name': 'Pittsburgh', 'production_time': '2015-03-06', 'photo': 'product3.jpg'},

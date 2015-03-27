@@ -47,7 +47,7 @@ def edit(request):
     # create the form object
     # fill the form initially with data
     form = RentalEditForm(initial={
-        'rental_time': rental.rental_time,
+        'time': rental.time,
         'due_date': rental.due_date,
         'discount_percent': rental.discount_percent,
         'user': rental.user,
@@ -57,7 +57,7 @@ def edit(request):
         form.rentalid = rental.id
         if form.is_valid():
             # make the changes on the rental object
-            rental.rental_time = form.cleaned_data['rental_time']
+            rental.time = form.cleaned_data['time']
             rental.due_date = form.cleaned_data['due_date']
             rental.discount_percent = form.cleaned_data['discount_percent']
             rental.user = form.cleaned_data['user']
@@ -71,7 +71,7 @@ def edit(request):
 
 
 class RentalEditForm(forms.Form):
-    rental_time = forms.DateTimeField(required=True, label="Rental Time", widget=forms.TextInput(attrs={'placeholder': 'Rental Time', 'class': 'form-control'}))
+    time = forms.DateTimeField(required=True, label="Rental Time", widget=forms.TextInput(attrs={'placeholder': 'Rental Time', 'class': 'form-control'}))
     due_date = forms.DateField(required=True, label="Due Date", widget=forms.TextInput(attrs={'placeholder': 'Due Date', 'class': 'form-control'}))
     discount_percent = forms.CharField(required=True, label="Discount Percent", widget=forms.TextInput(attrs={'placeholder': 'Discount Percent', 'class': 'form-control'}))
     user = forms.CharField(required=False, label="User", widget=forms.TextInput(attrs={'placeholder': 'User', 'class': 'form-control'}))
@@ -96,7 +96,7 @@ def create(request):
     '''Creates a new rental'''
     rental = hmod.Rental()
     user = hmod.User()
-    # rental.rental_time = ''
+    # rental.time = ''
     # rental.due_date = ''
     rental.disocunt_percent = ''
     rental.save()
