@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427507465.835759
+_modified_time = 1427509287.927843
 _enable_loop = True
 _template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/overdue.html'
 _template_uri = 'overdue.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content', 'content_left', 'jumbotron', 'content_center', 'content_right']
+_exports = ['content', 'content_right', 'content_center', 'jumbotron', 'content_left']
 
 
 def _mako_get_namespace(context, name):
@@ -28,20 +28,20 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        overdues90 = context.get('overdues90', UNDEFINED)
+        overdues60 = context.get('overdues60', UNDEFINED)
+        overdues30 = context.get('overdues30', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        overdues1 = context.get('overdues1', UNDEFINED)
-        def jumbotron():
-            return render_jumbotron(context._locals(__M_locals))
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
+        overdues = context.get('overdues', UNDEFINED)
         def content_center():
             return render_content_center(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        overdues3 = context.get('overdues3', UNDEFINED)
-        overdues2 = context.get('overdues2', UNDEFINED)
-        overdues4 = context.get('overdues4', UNDEFINED)
+        def jumbotron():
+            return render_jumbotron(context._locals(__M_locals))
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<!--nothing to import-->\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -79,38 +79,38 @@ def render_content(context,**pageargs):
     try:
         def content():
             return render_content(context)
-        overdues1 = context.get('overdues1', UNDEFINED)
-        overdues3 = context.get('overdues3', UNDEFINED)
-        overdues2 = context.get('overdues2', UNDEFINED)
-        overdues4 = context.get('overdues4', UNDEFINED)
+        overdues = context.get('overdues', UNDEFINED)
+        overdues30 = context.get('overdues30', UNDEFINED)
+        overdues90 = context.get('overdues90', UNDEFINED)
+        overdues60 = context.get('overdues60', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <div class = "text-left">\r\n      <h2>Overdue Rentals</h2>\r\n    </div>\r\n\t<table id="overdue_table" class = "table table-striped table-bordered">\r\n\t\t<th scope="col" colspan="2"><div align="center"><30 Days </div></th>\r\n\t\t    <tr>\r\n\t\t      <th>Name</th>\r\n\t\t      <th>Due Date</th>\r\n\t\t    </tr>\r\n')
-        for overdue1 in overdues1:
+        for overdue in overdues:
             __M_writer('\t\t\t<tr>\r\n\t            <td> ')
-            __M_writer(str( overdue1[0] ))
+            __M_writer(str( overdue[0] ))
             __M_writer('</td>\r\n\t\t\t\t<td> ')
-            __M_writer(str( overdue1[5] ))
+            __M_writer(str( overdue[5] ))
             __M_writer(' </td>\r\n\t\t\t</tr>\r\n')
         __M_writer('\t</table>\r\n\r\n\t<table id="overdue_table" class = "table table-striped table-bordered">\r\n\t\t<th scope="col" colspan="2"><div align="center"> 30-59 Days </div></th>\r\n\t\t    <tr>\r\n\t\t      <th>Name</th>\r\n\t\t      <th>Due Date</th>\r\n\t\t    </tr>\r\n')
-        for overdue2 in overdues2:
+        for overdue in overdues30:
             __M_writer('\t\t\t<tr>\r\n\t            <td> ')
-            __M_writer(str( overdue2[0] ))
+            __M_writer(str( overdue[0] ))
             __M_writer('</td>\r\n\t\t\t\t<td> ')
-            __M_writer(str( overdue2[5] ))
+            __M_writer(str( overdue[5] ))
             __M_writer(' </td>\r\n\t\t\t</tr>\r\n')
         __M_writer('\t</table>\r\n\r\n\t<table id="overdue_table" class = "table table-striped table-bordered">\r\n\t\t<th scope="col" colspan="2"><div align="center">60-89 Days </div></th>\r\n\t\t    <tr>\r\n\t\t      <th>Name</th>\r\n\t\t      <th>Due Date</th>\r\n\t\t    </tr>\r\n')
-        for overdue3 in overdues3:
+        for overdue in overdues60:
             __M_writer('\t\t\t<tr>\r\n\t            <td> ')
-            __M_writer(str( overdue3[0] ))
+            __M_writer(str( overdue[0] ))
             __M_writer('</td>\r\n\t\t\t\t<td> ')
-            __M_writer(str( overdue3[5] ))
+            __M_writer(str( overdue[5] ))
             __M_writer(' </td>\r\n\t\t\t</tr>\r\n')
         __M_writer('\t</table>\r\n\r\n\t<table id="overdue_table" class = "table table-striped table-bordered">\r\n\t\t<th scope="col" colspan="2"><div align="center">90+ Days </div></th>\r\n\t\t    <tr>\r\n\t\t      <th>Name</th>\r\n\t\t      <th>Due Date</th>\r\n\t\t    </tr>\r\n')
-        for overdue4 in overdues4:
+        for overdue in overdues90:
             __M_writer('\t\t\t<tr>\r\n\t            <td> ')
-            __M_writer(str( overdue4[0] ))
+            __M_writer(str( overdue[0] ))
             __M_writer('</td>\r\n\t\t\t\t<td> ')
-            __M_writer(str( overdue4[5] ))
+            __M_writer(str( overdue[5] ))
             __M_writer(' </td>\r\n\t\t\t</tr>\r\n')
         __M_writer('\t</table>\r\n')
         return ''
@@ -118,23 +118,11 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_left(context,**pageargs):
+def render_content_right(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_left():
-            return render_content_left(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_jumbotron(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def jumbotron():
-            return render_jumbotron(context)
+        def content_right():
+            return render_content_right(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -154,11 +142,23 @@ def render_content_center(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_right(context,**pageargs):
+def render_jumbotron(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_right():
-            return render_content_right(context)
+        def jumbotron():
+            return render_jumbotron(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_left(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_left():
+            return render_content_left(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -168,6 +168,6 @@ def render_content_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "overdue.html", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/overdue.html", "source_encoding": "ascii", "line_map": {"133": 66, "139": 66, "145": 72, "151": 72, "27": 0, "157": 75, "163": 75, "169": 163, "46": 1, "51": 64, "56": 67, "61": 70, "66": 73, "71": 76, "77": 5, "87": 5, "88": 15, "89": 16, "90": 17, "91": 17, "92": 18, "93": 18, "94": 21, "95": 29, "96": 30, "97": 31, "98": 31, "99": 32, "100": 32, "101": 35, "102": 43, "103": 44, "104": 45, "105": 45, "106": 46, "107": 46, "108": 49, "109": 57, "110": 58, "111": 59, "112": 59, "113": 60, "114": 60, "115": 63, "121": 69, "127": 69}}
+{"filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/overdue.html", "source_encoding": "ascii", "line_map": {"133": 72, "139": 72, "145": 66, "151": 66, "27": 0, "157": 69, "163": 69, "169": 163, "46": 1, "51": 64, "56": 67, "61": 70, "66": 73, "71": 76, "77": 5, "87": 5, "88": 15, "89": 16, "90": 17, "91": 17, "92": 18, "93": 18, "94": 21, "95": 29, "96": 30, "97": 31, "98": 31, "99": 32, "100": 32, "101": 35, "102": 43, "103": 44, "104": 45, "105": 45, "106": 46, "107": 46, "108": 49, "109": 57, "110": 58, "111": 59, "112": 59, "113": 60, "114": 60, "115": 63, "121": 75, "127": 75}, "uri": "overdue.html"}
 __M_END_METADATA
 """

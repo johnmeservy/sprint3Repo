@@ -20,14 +20,28 @@ def process_request(request):
 
     now = datetime.date.today()
     delta = datetime.timedelta(days=0)
+    delta30 = datetime.timedelta(days=-30)
+    delta60 = datetime.timedelta(days=-60)
+    delta90 = datetime.timedelta(days=-90)
     overdue = now + delta
-    print(now)
-    print(delta)
-    print(overdue)
+    overdue30 = now + delta30
+    overdue60 = now + delta60
+    overdue90 = now + delta90
 
     cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s))', [overdue])
     overdue = cursor.fetchall()
 
-    params['overdues'] = overdue
-    return templater.render_to_response(request, 'overdue.html', params)
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s))', [overdue30])
+    overdue30 = cursor.fetchall()
 
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s))', [overdue60])
+    overdue60 = cursor.fetchall()
+
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s))', [overdue90])
+    overdue90 = cursor.fetchall()
+
+    params['overdues'] = overdue
+    params['overdues30'] = overdue30
+    params['overdues60'] = overdue60
+    params['overdues90'] = overdue90
+    return templater.render_to_response(request, 'overdue.html', params)
