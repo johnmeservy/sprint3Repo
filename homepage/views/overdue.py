@@ -7,20 +7,27 @@ import homepage.models as hmod
 from django.shortcuts import redirect
 from django_mako_plus.controller.router import get_renderer
 from django.db import connection, connections
-import time
+import time, datetime
 
 templater = get_renderer('homepage')
 
 ##########################################################################
-# shows the list of orders
+# shows the list of all overdue rentals
 @view_function
 def process_request(request):
     params = {}
     cursor = connection.cursor()
-    
-    now= time.strftime("%x")
-    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s))', [now])
+
+    now = datetime.date.today()
+    delta = datetime.timedelta(days=0)
+    overdue = now + delta
+    print(now)
+    print(delta)
+    print(overdue)
+
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s))', [overdue])
     overdue = cursor.fetchall()
 
     params['overdues'] = overdue
     return templater.render_to_response(request, 'overdue.html', params)
+

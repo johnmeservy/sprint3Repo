@@ -21,7 +21,21 @@
 	</table>
 
 	<table id="overdue_table" class = "table table-striped table-bordered">
-		<th scope="col" colspan="2"><div align="center">60-90 Days </div></th>
+		<th scope="col" colspan="2"><div align="center"> 30-59 Days </div></th>
+		    <tr>
+		      <th>Name</th>
+		      <th>Due Date</th>
+		    </tr>
+			%for overdue in overdues:
+			<tr>
+	            <td> ${ overdue[0] }</td>
+				<td> ${ overdue[5] } </td>
+			</tr>
+		%endfor
+	</table>
+
+	<table id="overdue_table" class = "table table-striped table-bordered">
+		<th scope="col" colspan="2"><div align="center">60-89 Days </div></th>
 		    <tr>
 		      <th>Name</th>
 		      <th>Due Date</th>
