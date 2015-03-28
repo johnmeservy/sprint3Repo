@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427487641.154644
+_modified_time = 1427500776.618117
 _enable_loop = True
 _template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/events.html'
 _template_uri = 'events.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_center', 'content_right', 'content_left', 'jumbotron', 'content']
+_exports = ['content_right', 'jumbotron', 'content', 'content_center', 'content_left']
 
 
 def _mako_get_namespace(context, name):
@@ -28,17 +28,17 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
-        events = context.get('events', UNDEFINED)
         def content_right():
             return render_content_right(context._locals(__M_locals))
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
+        events = context.get('events', UNDEFINED)
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n<!--nothing to import-->\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -71,35 +71,11 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_center(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_center():
-            return render_content_center(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_content_right(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         def content_right():
             return render_content_right(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_left(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_left():
-            return render_content_left(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -122,9 +98,9 @@ def render_jumbotron(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        events = context.get('events', UNDEFINED)
         def content():
             return render_content(context)
+        events = context.get('events', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\t\t<!--create the table-->\r\n    <div class = "text-left">\r\n      <h2>Manage Events</h2>\r\n    </div>\r\n    <div class = "text-right">\r\n      <a href ="/homepage/events.create/" class= "btn btn-success">Create New Event</a>\r\n    </div>\r\n\t\t<table id="manage_table" class = "table table-striped table-bordered">\r\n\t\t    <tr>\r\n\t\t      <th>ID</th>\r\n\t\t      <th>Event Name</th>\r\n\t\t      <th>Start Date</th>\r\n          <th>End Date</th>\r\n\t\t      <th>Venue Name</th>\r\n          <th>City</th>\r\n\t\t      <th>Actions</th>\r\n\t\t    </tr>\r\n')
         for event in events:
@@ -140,7 +116,9 @@ def render_content(context,**pageargs):
             __M_writer(str( event.venue_name ))
             __M_writer(' </td>\r\n            <td> ')
             __M_writer(str( event.city ))
-            __M_writer(' </td>\r\n\t\t\t\t\t\t<td width="1%" nowrap>\r\n\t\t\t\t\t\t\t<a class="label label-info" href="/homepage/events.edit/')
+            __M_writer(' </td>\r\n\t\t\t\t\t\t<td width="1%" nowrap>\r\n\t\t\t\t\t\t\t<a class="label label-warning" href="/homepage/events.edit/')
+            __M_writer(str( event.id ))
+            __M_writer('/">Areas</a>\r\n\t\t\t\t\t\t\t<a class="label label-info" href="/homepage/events.edit/')
             __M_writer(str( event.id ))
             __M_writer('/">Edit</a>\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t</tr>\r\n')
         __M_writer('\t\t</table>\r\n')
@@ -149,8 +127,32 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content_center(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_center():
+            return render_content_center(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_left(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_left():
+            return render_content_left(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "line_map": {"129": 5, "130": 23, "131": 24, "68": 49, "133": 25, "134": 26, "135": 26, "136": 27, "137": 27, "74": 45, "139": 28, "140": 29, "141": 29, "142": 30, "143": 30, "80": 45, "145": 32, "146": 36, "86": 48, "152": 146, "132": 25, "27": 0, "92": 48, "122": 5, "144": 32, "98": 42, "104": 42, "43": 1, "110": 39, "48": 37, "116": 39, "53": 40, "58": 43, "138": 28, "63": 46}, "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/events.html", "uri": "events.html"}
+{"source_encoding": "ascii", "line_map": {"130": 46, "43": 1, "68": 50, "136": 46, "74": 49, "142": 43, "80": 49, "124": 37, "148": 43, "86": 40, "154": 148, "27": 0, "92": 40, "122": 33, "48": 38, "98": 5, "105": 5, "106": 23, "107": 24, "108": 25, "109": 25, "110": 26, "111": 26, "112": 27, "113": 27, "114": 28, "115": 28, "116": 29, "53": 41, "118": 30, "119": 30, "120": 32, "121": 32, "58": 44, "123": 33, "117": 29, "63": 47}, "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/events.html", "uri": "events.html"}
 __M_END_METADATA
 """

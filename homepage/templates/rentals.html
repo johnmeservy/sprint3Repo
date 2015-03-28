@@ -8,6 +8,7 @@
       <h2>Manage Rentals</h2>
     </div>
     <div class = "text-right">
+      <a href ="/homepage/overdue/" class= "btn btn-danger">Overdue Rental Report</a>
       <a href ="/homepage/rentals.create/" class= "btn btn-success">Create New Rental</a>
     </div>
 		<table id="manage_table" class = "table table-striped table-bordered">
@@ -15,15 +16,13 @@
 		      <th>ID</th>
 		      <th>Rental Time</th>
 		      <th>Rental Date</th>
-          <th>Discount Percent</th>
 		      <th>Actions</th>
 		    </tr>
 				%for rental in rentals:
 					<tr>
-            <td> ${ rental.id }</td>
-            <td> ${ rental.time } </td>
+			            <td> ${ rental.id }</td>
+			            <td> ${ rental.time } </td>
 						<td> ${ rental.due_date } </td>
-            <td> ${ rental.discount_percent } </td>
 						<td width="1%" nowrap>
 							<a class="label label-info" href="/homepage/rentals.edit/${ rental.id }/">Edit</a>
 						</td>

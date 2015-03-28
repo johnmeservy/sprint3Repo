@@ -49,7 +49,6 @@ def edit(request):
     form = RentalEditForm(initial={
         'time': rental.time,
         'due_date': rental.due_date,
-        'discount_percent': rental.discount_percent,
         'user': rental.user,
     })
     if request.method == 'POST':
@@ -59,7 +58,6 @@ def edit(request):
             # make the changes on the rental object
             rental.time = form.cleaned_data['time']
             rental.due_date = form.cleaned_data['due_date']
-            rental.discount_percent = form.cleaned_data['discount_percent']
             rental.user = form.cleaned_data['user']
             rental.save()
             return HttpResponseRedirect('/homepage/rentals/')
@@ -73,15 +71,7 @@ def edit(request):
 class RentalEditForm(forms.Form):
     time = forms.DateTimeField(required=True, label="Rental Time", widget=forms.TextInput(attrs={'placeholder': 'Rental Time', 'class': 'form-control'}))
     due_date = forms.DateField(required=True, label="Due Date", widget=forms.TextInput(attrs={'placeholder': 'Due Date', 'class': 'form-control'}))
-    discount_percent = forms.CharField(required=True, label="Discount Percent", widget=forms.TextInput(attrs={'placeholder': 'Discount Percent', 'class': 'form-control'}))
     user = forms.CharField(required=False, label="User", widget=forms.TextInput(attrs={'placeholder': 'User', 'class': 'form-control'}))
-
-    def clean_data(self):
-        # check if the made_to_rental_products is not 5
-        if len(self.cleaned_data['discount_percent']) > 2:
-            raise forms.ValidationError('Invalid Percent.')
-
-        return self.cleaned_data['discount_percent']
 
 
 ##########################################################################

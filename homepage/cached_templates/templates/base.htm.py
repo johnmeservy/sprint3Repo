@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427489008.343456
+_modified_time = 1427500689.905556
 _enable_loop = True
 _template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_right', 'content_left', 'jumbotron', 'content', 'content_center']
+_exports = ['content_right', 'jumbotron', 'content', 'content_center', 'content_left']
 
 
 from django_mako_plus.controller import static_files 
@@ -19,19 +19,19 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        request = context.get('request', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
         def content():
             return render_content(context._locals(__M_locals))
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n')
@@ -105,18 +105,6 @@ def render_content_right(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_left(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_left():
-            return render_content_left(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n              Left Content\r\n          ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_jumbotron(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -153,8 +141,20 @@ def render_content_center(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content_left(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_left():
+            return render_content_left(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n              Left Content\r\n          ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"line_map": {"132": 120, "138": 120, "16": 4, "18": 0, "150": 136, "156": 150, "36": 2, "37": 4, "38": 5, "42": 5, "43": 15, "44": 24, "45": 24, "46": 27, "47": 27, "48": 34, "49": 34, "50": 34, "51": 40, "52": 72, "53": 73, "54": 76, "55": 76, "56": 84, "57": 85, "58": 96, "59": 103, "64": 111, "65": 117, "70": 122, "71": 128, "76": 133, "81": 138, "86": 143, "87": 149, "88": 157, "89": 157, "90": 157, "96": 141, "144": 136, "102": 141, "108": 131, "114": 131, "120": 106, "126": 106}, "uri": "base.htm", "source_encoding": "ascii", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/base.htm"}
+{"source_encoding": "ascii", "line_map": {"132": 136, "138": 136, "16": 4, "18": 0, "150": 131, "156": 150, "36": 2, "37": 4, "38": 5, "42": 5, "43": 15, "44": 24, "45": 24, "46": 27, "47": 27, "48": 34, "49": 34, "50": 34, "51": 40, "52": 72, "53": 73, "54": 76, "55": 76, "56": 84, "57": 85, "58": 96, "59": 103, "64": 111, "65": 117, "70": 122, "71": 128, "76": 133, "81": 138, "86": 143, "87": 149, "88": 157, "89": 157, "90": 157, "96": 141, "144": 131, "102": 141, "108": 106, "114": 106, "120": 120, "126": 120}, "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/base.htm", "uri": "base.htm"}
 __M_END_METADATA
 """

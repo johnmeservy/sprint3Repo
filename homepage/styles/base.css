@@ -1,6 +1,11 @@
 .navbar-inverse .navbar-header .navbar-brand {
-  background-color: #1F4E79;
+  background-color: #153450;
   color: #FFFFFF;
+}
+
+.navbar {
+  background-color: #153450;
+  border-color: #153450;
 }
 
 #logged_in_as{
@@ -38,6 +43,14 @@ ul.errorlist > li {
 
 #manage_table_shopping > td{
   font-size: 18px;
+}
+
+#overdue_table{
+  width: 33%;
+  float:left;
+  border-color: black;
+  border: 1px;
+  margin: 2px;
 }
 
 .edit_table{
