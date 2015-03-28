@@ -206,6 +206,11 @@ for data in [
 for data in [
     {'condition': 'Like New', 'new_damage': 'True', 'damage_fee': '10.00', 'due_date': '2015-03-04', 'returned': 'TRUE'},
     {'condition': 'Fair', 'new_damage': 'False', 'damage_fee': '10.00', 'due_date': '2015-03-04'},
+    {'condition': 'Fair', 'new_damage': 'False', 'damage_fee': '10.00', 'due_date': '2014-03-04'},
+    {'condition': 'Fair', 'new_damage': 'False', 'damage_fee': '10.00', 'due_date': '2015-01-04'},
+    {'condition': 'Fair', 'new_damage': 'False', 'damage_fee': '10.00', 'due_date': '2014-12-04'},
+    {'condition': 'Fair', 'new_damage': 'False', 'damage_fee': '10.00', 'due_date': '2014-12-27'},
+    {'condition': 'Fair', 'new_damage': 'False', 'damage_fee': '10.00', 'due_date': '2014-11-04'},
 ]:
 
     d = hmod.RentalItem()
