@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425793569.226924
+_modified_time = 1427576833.759505
 _enable_loop = True
 _template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/productlist.html'
 _template_uri = 'productlist.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['jumbotron', 'content_center', 'content_left', 'content_right', 'content']
+_exports = ['content', 'content_left', 'content_center', 'content_right', 'jumbotron']
 
 
 def _mako_get_namespace(context, name):
@@ -28,18 +28,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def jumbotron():
-            return render_jumbotron(context._locals(__M_locals))
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
+        products = context.get('products', UNDEFINED)
         def content_left():
             return render_content_left(context._locals(__M_locals))
-        products = context.get('products', UNDEFINED)
+        def content():
+            return render_content(context._locals(__M_locals))
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
+        def jumbotron():
+            return render_jumbotron(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -71,61 +71,13 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_jumbotron(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def jumbotron():
-            return render_jumbotron(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n\t<form class="navbar-form navbar-left" role="search">\r\n        <div class="input-group">\r\n            <input type="text" class="form-control searchbar" placeholder="Search" name="srch-term" id="srch-term">\r\n            <div class="input-group-btn">\r\n                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>\r\n            </div>\r\n        </div>\r\n      </form>\t\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_center(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_center():
-            return render_content_center(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_left(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_left():
-            return render_content_left(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_right(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_right():
-            return render_content_right(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        products = context.get('products', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def content():
             return render_content(context)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        products = context.get('products', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n')
         for product in products:
@@ -151,8 +103,56 @@ def render_content(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content_left(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_left():
+            return render_content_left(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_center(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_center():
+            return render_content_center(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_right(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_right():
+            return render_content_right(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_jumbotron(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def jumbotron():
+            return render_jumbotron(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n\t<form class="navbar-form navbar-left" role="search">\r\n        <div class="input-group">\r\n            <input type="text" class="form-control searchbar" placeholder="Search" name="srch-term" id="srch-term">\r\n            <div class="input-group-btn">\r\n                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>\r\n            </div>\r\n        </div>\r\n      </form>\t\r\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/productlist.html", "line_map": {"64": 42, "130": 3, "131": 4, "132": 5, "133": 6, "134": 6, "135": 7, "136": 7, "137": 8, "74": 27, "139": 8, "140": 8, "141": 9, "142": 9, "143": 15, "80": 27, "145": 17, "146": 17, "147": 17, "148": 17, "86": 41, "154": 148, "27": 0, "92": 41, "144": 15, "98": 38, "104": 38, "44": 1, "110": 44, "49": 25, "116": 44, "54": 36, "122": 3, "59": 39, "138": 8}, "uri": "productlist.html"}
+{"uri": "productlist.html", "source_encoding": "ascii", "line_map": {"64": 42, "130": 44, "118": 41, "136": 44, "74": 3, "142": 27, "82": 3, "83": 4, "84": 5, "85": 6, "86": 6, "87": 7, "88": 7, "89": 8, "90": 8, "27": 0, "92": 8, "93": 9, "94": 9, "95": 15, "96": 15, "97": 17, "98": 17, "91": 8, "100": 17, "112": 38, "106": 38, "44": 1, "154": 148, "99": 17, "49": 25, "54": 36, "148": 27, "59": 39, "124": 41}, "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/productlist.html"}
 __M_END_METADATA
 """

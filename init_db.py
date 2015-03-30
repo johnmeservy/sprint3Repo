@@ -163,6 +163,7 @@ for data in [
     {'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'name': 'Printing Press', 'place_number': '3'},
     {'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'name': 'Blacksmith', 'place_number': '4'},
     {'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'name': 'Candle Maker', 'place_number': '5'},
+    {'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 'name': 'Guest Services', 'place_number': '6'},
 ]:
     d = hmod.Area()
     for k, v in data.items():
@@ -214,6 +215,22 @@ for data in [
 ]:
 
     d = hmod.RentalItem()
+    for k, v in data.items():
+        setattr(d, k, v)
+    d.save()
+
+# populating artisan items
+for data in [
+    {'area': 'Candle Maker', 'name': 'Candle', 'description': 'Description 1', 'low_price': '10.00', 'high_price': '35.74', 'artisan_name': 'John', 'photo': 'product1.jpg'},
+    {'area': 'Blacksmith', 'name': 'Musket', 'description': 'Description 2', 'low_price': '10.00', 'high_price': '25.74', 'artisan_name': 'Ben', 'photo': 'product2.jpg'},
+    {'area': 'Guest Services', 'name': 'American Flag', 'description': 'Description 3', 'low_price': '10.00', 'high_price': '45.74', 'artisan_name': 'Taylor', 'photo': 'product3.jpg'},
+    {'area': 'Guest Services', 'name': 'Plymouth Rock', 'description': 'Description 4', 'low_price': '10.00', 'high_price': '75.74', 'artisan_name': 'Landon', 'photo': 'product4.jpg'},
+    {'area': 'Guest Services', 'name': 'Colonial Art', 'description': 'Description 5', 'low_price': '10.00', 'high_price': '34.74', 'artisan_name': 'Steve', 'photo': 'product5.jpg'},
+    {'area': 'Blacksmith', 'name': 'Sword', 'description': 'Description 6', 'low_price': '10.00', 'high_price': '30.74', 'artisan_name': 'Thomas', 'photo': 'product6.jpg'},
+    {'area': 'Guest Services', 'name': 'Yo Yo', 'description': 'Description 7', 'low_price': '10.00', 'high_price': '29.74', 'artisan_name': 'Conan', 'photo': 'product7.jpg'},
+]:
+
+    d = hmod.SaleItem()
     for k, v in data.items():
         setattr(d, k, v)
     d.save()

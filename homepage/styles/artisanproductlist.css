@@ -5,12 +5,12 @@
     margin: 30px;
     padding: 5px;
     width: 210px;
-    height: 350px;
+    height: 320px;
     text-align: center;
     vertical-align: top;
 }
 
-.item_container > a > img {
+.item_container > img {
     height: 200px;
     width: 198px;
     vertical-align: center;
@@ -21,7 +21,7 @@
     font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 15px;
-    margin-top: 15px;
+    margin-top: 0px;
 }
 
 #product{

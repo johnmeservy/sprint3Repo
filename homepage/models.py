@@ -290,8 +290,9 @@ class SaleItem(models.Model):
     description = models.TextField(max_length=500)
     low_price = models.DecimalField(max_digits=10, decimal_places=2)
     high_price = models.DecimalField(max_digits=10, decimal_places=2)
-    artisan_name = models.ForeignKey(User)
-    area = models.ForeignKey(Area, null=True)
+    artisan_name = models.TextField(max_length=100)
+    area = models.TextField(max_length=100, null=True)
+    photo = models.TextField(null=True)
 
     def __str__(self):
         return self.name
