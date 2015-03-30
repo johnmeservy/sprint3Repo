@@ -28,20 +28,36 @@ def process_request(request):
     overdue60 = now + delta60
     overdue90 = now + delta90
 
-    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s))', [overdue])
-    overdue = cursor.fetchall()
+    print(overdue90)
+    # oo30 = hmod.RentalItem.objects.filter(due_date__lte='2015-03-31')
 
-    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s))', [overdue30])
-    overdue30 = cursor.fetchall()
+    # o30 = hmod.RentalItem.objects.filter(due_date__lte=now)
+    # # o30 = hmod.RentalItem.objects.all()
+    # print(oo30)
 
-    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s))', [overdue60])
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s)) ORDER BY due_date', [overdue90])
+    overdue90 = cursor.fetchall()
+
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date between %s AND %s)) ORDER BY due_date', [overdue60, overdue30])
     overdue60 = cursor.fetchall()
 
-    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s))', [overdue90])
-    overdue90 = cursor.fetchall()
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date between %s AND %s)) ORDER BY due_date', [overdue30, overdue])
+    overdue30 = cursor.fetchall()
+
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date between %s AND %s)) ORDER BY due_date', [overdue, now])
+    overdue = cursor.fetchall()
+
+
+
+
+
+
+
+    print(overdue90)
 
     params['overdues'] = overdue
     params['overdues30'] = overdue30
     params['overdues60'] = overdue60
     params['overdues90'] = overdue90
+    # params['os30'] = o30
     return templater.render_to_response(request, 'overdue.html', params)
