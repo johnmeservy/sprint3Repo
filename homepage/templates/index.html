@@ -1,21 +1,26 @@
 <%inherit file="base.htm" />
 
 <%block name="jumbotron">
-    <img class="jumbo-image" src="${ STATIC_URL}homepage/media/jumbotron_woods.jpg">
 </%block>
 
 <%block name="content">
-    <p class="text-center">center</p>
+	<h2> Upcoming Events </h2>
+	<a href="/homepage/events">
+    	<img src="${ STATIC_URL}homepage/media/event_images/event1.jpg" width = 365 height = 250>
+    </a>
+    <a href="/homepage/events">
+    	<img src="${ STATIC_URL}homepage/media/event_images/event2.jpg" width = 365 height = 250>
+    </a>
+    <a href="/homepage/events">
+    	<img src="${ STATIC_URL}homepage/media/event_images/event3.jpg" width = 365 height = 250>
+    </a>
 </%block>
 
 <%block name="content_left">
-    <p class="text-center">Left Content</p>
 </%block>
 
 <%block name="content_center">
-  <p class="text-center">Center Content</p>
 </%block>
 
 <%block name="content_right">
-  <p class="text-center">Right Content</p>
 </%block>

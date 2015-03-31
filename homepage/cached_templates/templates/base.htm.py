@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427777609.181535
+_modified_time = 1427778845.229162
 _enable_loop = True
 _template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_center', 'content', 'jumbotron', 'content_left', 'content_right']
+_exports = ['content_center', 'content_right', 'content_left', 'content', 'jumbotron']
 
 
 from django_mako_plus.controller import static_files 
@@ -19,19 +19,19 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def content():
-            return render_content(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def content_left():
-            return render_content_left(context._locals(__M_locals))
-        def jumbotron():
-            return render_jumbotron(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
+        def content_left():
+            return render_content_left(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
         def content_center():
             return render_content_center(context._locals(__M_locals))
+        def jumbotron():
+            return render_jumbotron(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n')
@@ -48,7 +48,7 @@ def render_body(context,**pageargs):
         __M_writer('    ')
         __M_writer(str( static_renderer.get_template_css(request, context)  ))
         __M_writer('\r\n\r\n  </head>\r\n  <body>\r\n\r\n')
-        __M_writer('    <header class="navbar navbar-inverse navbar-fixed-top">\r\n      <div class="container-fluid">\r\n        <!-- Brand and toggle get grouped for better mobile display -->\r\n        <div class="navbar-header">\r\n          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">\r\n            <span class="sr-only">Toggle navigation</span>\r\n            <span class="icon-bar"></span>\r\n            <span class="icon-bar"></span>\r\n            <span class="icon-bar"></span>\r\n          </button>\r\n          <a class="navbar-brand" href="/homepage/index">CHF</a>\r\n        </div>\r\n\r\n        <!-- Collect the nav links, forms, and other content for toggling -->\r\n        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\r\n          <ul class="nav navbar-nav">\r\n            <li><a href="/homepage/users"><span class ="glyphicon glyphicon-user"></span>  Users</a></li>\r\n            <li><a href="/homepage/events"><span class ="glyphicon glyphicon-calendar"></span>  Events</a></li>\r\n            <li><a href="/homepage/areas"><span class ="glyphicon glyphicon-globe"></span>  Areas</a></li>\r\n            <li><a href="/homepage/orders"><span class ="glyphicon glyphicon-file"></span>  Orders</a></li>\r\n            <li><a href="/homepage/products"><span class ="glyphicon glyphicon-list"></span>  Products</a></li>\r\n            <li class="dropdown">\r\n              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class ="glyphicon glyphicon-usd"></span>  Rentals <span class ="caret"></a>\r\n              <ul class="dropdown-menu" role="menu">\r\n                <li><a href="/homepage/rentals/">Manage Rentals</a></li>\r\n                <li><a href="/homepage/rentalproductlist/">Rentable Products</a></li>\r\n              </ul>\r\n            </li>\r\n            <li class="dropdown">\r\n              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class ="glyphicon glyphicon-usd"></span>  Shop <span class ="caret"></a>\r\n              <ul class="dropdown-menu" role="menu">\r\n                <li><a href="/homepage/productlist/">Mass Produced Products</a></li>\r\n                <li><a href="/homepage/artisanproductlist/">Artisan Products</a></li>\r\n              </ul>\r\n            </li>\r\n          </ul>\r\n\r\n')
+        __M_writer('    <header class="navbar navbar-inverse navbar-fixed-top">\r\n      <div class="container-fluid">\r\n        <!-- Brand and toggle get grouped for better mobile display -->\r\n        <div class="navbar-header">\r\n          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">\r\n            <span class="sr-only">Toggle navigation</span>\r\n            <span class="icon-bar"></span>\r\n            <span class="icon-bar"></span>\r\n            <span class="icon-bar"></span>\r\n          </button>\r\n          <a class="navbar-brand" href="/homepage/index">CHF</a>\r\n        </div>\r\n\r\n        <!-- Collect the nav links, forms, and other content for toggling -->\r\n        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">\r\n          <ul class="nav navbar-nav">\r\n            <li class="dropdown">\r\n              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class ="glyphicon glyphicon-menu-hamburger"></span>  Manage <span class ="caret"></a>\r\n              <ul class="dropdown-menu" role="menu">\r\n                <li><a href="/homepage/users"><span class ="glyphicon glyphicon-user"></span>  Users</a></li>\r\n                <li><a href="/homepage/events"><span class ="glyphicon glyphicon-calendar"></span>  Events</a></li>\r\n                <li><a href="/homepage/areas"><span class ="glyphicon glyphicon-globe"></span>  Areas</a></li>\r\n                <li><a href="/homepage/orders"><span class ="glyphicon glyphicon-file"></span>  Orders</a></li>\r\n                <li><a href="/homepage/products"><span class ="glyphicon glyphicon-list"></span>  Products</a></li>\r\n                <li><a href="/homepage/rentals/"><span class ="glyphicon glyphicon-transfer"></span> Rentals</a></li>\r\n              </ul>\r\n            </li>\r\n            <li><a href="/homepage/rentalproductlist/">Rentals</a></li>\r\n            <li class="dropdown">\r\n              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class ="glyphicon glyphicon-usd"></span>  Shop <span class ="caret"></a>\r\n              <ul class="dropdown-menu" role="menu">\r\n                <li><a href="/homepage/productlist/">Mass Produced Products</a></li>\r\n                <li><a href="/homepage/artisanproductlist/">Artisan Products</a></li>\r\n              </ul>\r\n            </li>\r\n          </ul>\r\n\r\n')
         if request.user.is_authenticated():
             __M_writer('            <ul class="nav navbar-nav navbar-right">\r\n            <li><a href="/homepage/shoppingcart"><span class ="glyphicon glyphicon-shopping-cart"></span></a></li>\r\n            <li class="dropdown">\r\n              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> ')
             __M_writer(str(request.user.get_full_name() ))
@@ -105,6 +105,30 @@ def render_content_center(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content_right(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_right():
+            return render_content_right(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n              Right Content\r\n          ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_left(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_left():
+            return render_content_left(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n              Left Content\r\n          ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -129,32 +153,8 @@ def render_jumbotron(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_left(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_left():
-            return render_content_left(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n              Left Content\r\n          ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_right(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_right():
-            return render_content_right(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n              Right Content\r\n          ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/base.htm", "line_map": {"132": 136, "138": 136, "16": 4, "18": 0, "150": 146, "156": 150, "36": 2, "37": 4, "38": 5, "42": 5, "43": 15, "44": 24, "45": 24, "46": 27, "47": 27, "48": 34, "49": 34, "50": 34, "51": 40, "52": 77, "53": 78, "54": 81, "55": 81, "56": 89, "57": 90, "58": 101, "59": 108, "64": 116, "65": 122, "70": 127, "71": 133, "76": 138, "81": 143, "86": 148, "87": 154, "88": 162, "89": 162, "90": 162, "96": 141, "144": 146, "102": 141, "108": 125, "114": 125, "120": 111, "126": 111}, "uri": "base.htm", "source_encoding": "ascii"}
+{"line_map": {"132": 125, "138": 125, "16": 4, "18": 0, "150": 111, "156": 150, "36": 2, "37": 4, "38": 5, "42": 5, "43": 15, "44": 24, "45": 24, "46": 27, "47": 27, "48": 34, "49": 34, "50": 34, "51": 40, "52": 77, "53": 78, "54": 81, "55": 81, "56": 89, "57": 90, "58": 101, "59": 108, "64": 116, "65": 122, "70": 127, "71": 133, "76": 138, "81": 143, "86": 148, "87": 154, "88": 162, "89": 162, "90": 162, "96": 141, "144": 111, "102": 141, "108": 146, "114": 146, "120": 136, "126": 136}, "source_encoding": "ascii", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/base.htm", "uri": "base.htm"}
 __M_END_METADATA
 """
