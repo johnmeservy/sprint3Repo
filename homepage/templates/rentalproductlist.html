@@ -1,0 +1,45 @@
+<%inherit file="base.htm"/>
+
+<%block name="content">
+	%for product in items:
+		<div class="item_container">
+			<a href="/homepage/productlist.viewproduct/${ product.id }/">
+				<div id="product" class="">${ product }</div>
+				<img src="${STATIC_URL}homepage/media/product_images/${ product.photo }"/>
+				<div id="current_price" class="">$${product.current_price}</div>
+			</a>
+			<div class="text-right">
+				<div class="row">
+	              <div class="col-lg-12">
+	                <div class="input-group">
+	                  <input id="quantity_${ product.id}" type="text" class="form-control" placeholder="Qty">
+	                  <span class="input-group-btn">
+	                    <button id="item_${ product.id}" class="btn btn-warning" data-pid="${ product.id}" type="button">Add to Cart</button>
+	                  </span>
+	                </div>
+	              </div>
+				</div>
+			</div>
+		</div>
+	%endfor
+</%block>
+
+<%block name="jumbotron">
+	<form class="navbar-form navbar-left" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control searchbar" placeholder="Search" name="srch-term" id="srch-term">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+      </form>	
+</%block>
+
+<%block name="content_left">
+</%block>
+
+<%block name="content_center">
+</%block>
+
+<%block name="content_right">
+</%block>

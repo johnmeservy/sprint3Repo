@@ -81,6 +81,49 @@ def add(request):
 
     return templater.render_to_response(request, 'shoppingcart.html', params)
 
+@view_function
+def addrental(request):
+    params = {}
+
+    pid = request.urlparams[0]
+    qty = request.urlparams[1]
+
+    if pid and qty:
+        if 'cart' not in request.session:
+            request.session['cart'] = {}
+
+        cart = request.session.get('cart', {})
+
+        if pid in cart:
+            cart[pid] = int(cart[pid]) + int(qty)
+        else:
+            cart[pid] = int(qty)
+
+        request.session['cart'] = cart
+
+        p = hmod.Product.objects.get(id=pid)
+
+        cart = request.session.get('cart', {})
+        products = {}
+        amount = 0
+
+        for product in hmod.Item.objects.filter(id__in=cart.keys()):
+            products[str(product.id)] = product
+
+        for key in products:
+            p = products[key]
+            amount += p.current_price * cart[str(p.id)]
+
+        params = {
+            'cart': cart,
+            'products': products,
+            'amount': amount,
+        }
+    else:
+        return HttpResponseRedirect('/homepage/shoppingcart/')
+
+    return templater.render_to_response(request, 'shoppingcart.html', params)
+
 
 @view_function
 def delete(request):

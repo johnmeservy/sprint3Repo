@@ -28,16 +28,16 @@ def process_request(request):
     overdue60 = now + delta60
     overdue90 = now + delta90
 
-    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date between %s and %s))', [overdue30, overdue])
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date between %s and %s)) ORDER BY due_date', [overdue30, overdue])
     overdue = cursor.fetchall()
 
-    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date between %s and %s))', [overdue60, overdue30])
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date between %s and %s)) ORDER BY due_date', [overdue60, overdue30])
     overdue30 = cursor.fetchall()
 
-    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date between %s and %s))', [overdue90, overdue60])
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date between %s and %s)) ORDER BY due_date', [overdue90, overdue60])
     overdue60 = cursor.fetchall()
 
-    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s))', [overdue90])
+    cursor.execute('SELECT * FROM homepage_RentalItem WHERE ((returned = False) AND (due_date < %s)) ORDER BY due_date', [overdue90])
     overdue90 = cursor.fetchall()
 
     params['overdues'] = overdue
