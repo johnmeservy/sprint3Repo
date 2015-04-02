@@ -4,10 +4,10 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1428004867.730335
+_modified_time = 1428005144.005561
 _enable_loop = True
-_template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/index.html'
-_template_uri = 'index.html'
+_template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/Rotary.html'
+_template_uri = 'Rotary.html'
 _source_encoding = 'ascii'
 import os, os.path, re
 _exports = ['jumbotron', 'content', 'content_left', 'content_center', 'content_right']
@@ -30,24 +30,23 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
         def content_left():
             return render_content_left(context._locals(__M_locals))
         def content_center():
             return render_content_center(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n\r\n')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'jumbotron'):
-            context['self'].jumbotron(**pageargs)
+        __M_writer('\r\n\r\n<!--nothing to import-->\r\n\r\n')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
+            context['self'].content(**pageargs)
         
 
         __M_writer('\r\n\r\n')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
-            context['self'].content(**pageargs)
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'jumbotron'):
+            context['self'].jumbotron(**pageargs)
         
 
         __M_writer('\r\n\r\n')
@@ -65,6 +64,7 @@ def render_body(context,**pageargs):
             context['self'].content_right(**pageargs)
         
 
+        __M_writer('\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -87,15 +87,8 @@ def render_content(context,**pageargs):
     try:
         def content():
             return render_content(context)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n\t<h2> Upcoming Events </h2>\r\n\t<a href="/homepage/SCERA">\r\n    \t<img src="')
-        __M_writer(str( STATIC_URL))
-        __M_writer('homepage/media/event_images/event1.jpg" width = 365 height = 250>\r\n    </a>\r\n    <a href="/homepage/Nielson">\r\n    \t<img src="')
-        __M_writer(str( STATIC_URL))
-        __M_writer('homepage/media/event_images/event2.jpg" width = 365 height = 250>\r\n    </a>\r\n    <a href="/homepage/Rotary">\r\n    \t<img src="')
-        __M_writer(str( STATIC_URL))
-        __M_writer('homepage/media/event_images/event3.jpg" width = 365 height = 250>\r\n    </a>\r\n')
+        __M_writer('\r\n\t<div class="text-left">\r\n\t\t<h2>Rotary Park - Provo</h2>\r\n\t\t<h3>1460 N 1640 W, Provo, UT 84601</h3\r\n\t\t<h3>Event Dates: June 4-7</h3>\r\n\t\t<h4>Areas</h4>\r\n\t\t<ul>\r\n\t\t\t<li>Mayflower Exhibit</li>\r\n\t\t\t<li>Bakery</li>\r\n\t\t\t<li>Blacksmith</li>\r\n\t\t\t<li>Candle Maker</li>\r\n\t\t\t<li>Guest Services</li>\r\n\t\t</ul>\r\n\t</div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -139,6 +132,6 @@ def render_content_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"128": 25, "134": 25, "73": 3, "140": 134, "79": 3, "85": 6, "27": 0, "92": 6, "58": 20, "94": 9, "95": 12, "96": 12, "97": 15, "98": 15, "104": 19, "43": 1, "110": 19, "93": 9, "48": 4, "116": 22, "53": 17, "122": 22, "63": 23}, "source_encoding": "ascii", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/index.html", "uri": "index.html"}
+{"line_map": {"97": 24, "67": 31, "133": 127, "103": 24, "73": 21, "42": 1, "109": 27, "47": 19, "79": 21, "27": 0, "115": 27, "52": 22, "85": 5, "121": 30, "57": 25, "91": 5, "62": 28, "127": 30}, "source_encoding": "ascii", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/Rotary.html", "uri": "Rotary.html"}
 __M_END_METADATA
 """
