@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1425777981.520703
+_modified_time = 1428001388.287748
 _enable_loop = True
 _template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/login.loginform.html'
 _template_uri = 'login.loginform.html'
@@ -52,7 +52,7 @@ def render_content(context,**pageargs):
         __M_writer = context.writer()
         __M_writer('\r\n  <div id="loginform_container" align="center">\r\n    <form id="loginform" method="POST" action="/homepage/login.loginform/">\r\n      <table>\r\n        ')
         __M_writer(str( form ))
-        __M_writer('\r\n      </table>\r\n      <div id="submit_button_container" align="center">\r\n        <button id="submit_button" class="btn btn-warning" type="submit">Login</button>\r\n      </div>\r\n    </form>\r\n  </div>\r\n')
+        __M_writer('\r\n      </table>\r\n      <div id="submit_button_container" align="center">\r\n        <button id="submit_button" class="btn btn-warning" type="submit">Login</button>\r\n        <a class="btn btn-link" href="/password_reset/">Forget Passsword?</button>\r\n      </div>\r\n    </form>\r\n  </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -60,6 +60,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/login.loginform.html", "line_map": {"35": 1, "53": 5, "54": 9, "55": 9, "40": 16, "27": 0, "61": 55, "46": 5}, "source_encoding": "ascii", "uri": "login.loginform.html"}
+{"source_encoding": "ascii", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/login.loginform.html", "line_map": {"35": 1, "53": 5, "54": 9, "55": 9, "40": 17, "27": 0, "61": 55, "46": 5}, "uri": "login.loginform.html"}
 __M_END_METADATA
 """

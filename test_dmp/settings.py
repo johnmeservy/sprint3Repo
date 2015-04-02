@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'django_mako_plus.controller',
     'polymorphic',
     'homepage',
+    'password_reset',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -16,7 +16,28 @@ def process_request(request):
     if not request.user.is_authenticated():
         return redirect('/homepage/login/?next=%s' % request.path)
 
-    params = {}
+    pid = request.urlparams[0]
+
+    cart = request.session.get('cart', {})
+
+    request.session['cart'] = cart
+
+    cart = request.session.get('cart', {})
+    products = {}
+    amount = 0
+
+    for product in hmod.Product.objects.filter(id__in=cart.keys()):
+        products[str(product.id)] = product
+
+    for key in products:
+        p = products[key]
+        amount += p.current_price * cart[str(p.id)]
+
+    params = {
+        'cart': cart,
+        'products': products,
+        'amount': amount,
+    }
 
     return templater.render_to_response(request, 'checkout.html', params)
 

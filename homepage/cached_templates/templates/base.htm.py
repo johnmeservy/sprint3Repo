@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1427778845.229162
+_modified_time = 1428001342.044295
 _enable_loop = True
 _template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/base.htm'
 _template_uri = 'base.htm'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_center', 'content_right', 'content_left', 'content', 'jumbotron']
+_exports = ['content_right', 'content_center', 'content_left', 'jumbotron', 'content']
 
 
 from django_mako_plus.controller import static_files 
@@ -19,19 +19,19 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        request = context.get('request', UNDEFINED)
+        def content():
+            return render_content(context._locals(__M_locals))
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def jumbotron():
+            return render_jumbotron(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
         def content_left():
             return render_content_left(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
-        def jumbotron():
-            return render_jumbotron(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n')
         __M_writer('\r\n')
@@ -39,7 +39,7 @@ def render_body(context,**pageargs):
         
         __M_locals_builtin_stored = __M_locals_builtin()
         __M_locals.update(__M_dict_builtin([(__M_key, __M_locals_builtin_stored[__M_key]) for __M_key in ['static_renderer'] if __M_key in __M_locals_builtin_stored]))
-        __M_writer('\r\n\r\n<!DOCTYPE html>\r\n<html>\r\n  <meta charset="UTF-8">\r\n  <head>\r\n\r\n    <title>homepage</title>\r\n\r\n')
+        __M_writer('\r\n\r\n<!DOCTYPE html>\r\n<html>\r\n  <meta charset="UTF-8">\r\n  <meta charset="UTF-8">\r\n  <meta name="Colonial Heritage Foundation" content="Information about Colonial Heritage Foundation, and the events from it. It is celebrating the colonies of the United States of America.">\r\n  <head>\r\n\r\n    <title>homepage</title>\r\n\r\n')
         __M_writer('    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>\r\n\r\n    <!-- Latest compiled and minified CSS (BOOTSTRAP) -->\r\n    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">\r\n\r\n    <!-- Latest compiled and minified JavaScript -->\r\n    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>\r\n\r\n    <!-- add a jquery form plug in for ajax calls - http://malsup.com/jquery/form/#download -->\r\n    <script src="')
         __M_writer(str(STATIC_URL))
         __M_writer('homepage/media/jquery.form.js"></script>\r\n\r\n    <!-- add a jquery form plug in for modals - https://github.com/doconix/jquery.loadmodal.js/blob/master/jquery.loadmodal.js -->\r\n    <script src="')
@@ -93,18 +93,6 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_center(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_center():
-            return render_content_center(context)
-        __M_writer = context.writer()
-        __M_writer('\r\n              Center Content\r\n          ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_content_right(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -117,23 +105,23 @@ def render_content_right(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_left(context,**pageargs):
+def render_content_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_left():
-            return render_content_left(context)
+        def content_center():
+            return render_content_center(context)
         __M_writer = context.writer()
-        __M_writer('\r\n              Left Content\r\n          ')
+        __M_writer('\r\n              Center Content\r\n          ')
         return ''
     finally:
         context.caller_stack._pop_frame()
 
 
-def render_content(context,**pageargs):
+def render_content_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content():
-            return render_content(context)
+        def content_left():
+            return render_content_left(context)
         __M_writer = context.writer()
         __M_writer('\r\n              Left Content\r\n          ')
         return ''
@@ -153,8 +141,20 @@ def render_jumbotron(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_content(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content():
+            return render_content(context)
+        __M_writer = context.writer()
+        __M_writer('\r\n              Left Content\r\n          ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"line_map": {"132": 125, "138": 125, "16": 4, "18": 0, "150": 111, "156": 150, "36": 2, "37": 4, "38": 5, "42": 5, "43": 15, "44": 24, "45": 24, "46": 27, "47": 27, "48": 34, "49": 34, "50": 34, "51": 40, "52": 77, "53": 78, "54": 81, "55": 81, "56": 89, "57": 90, "58": 101, "59": 108, "64": 116, "65": 122, "70": 127, "71": 133, "76": 138, "81": 143, "86": 148, "87": 154, "88": 162, "89": 162, "90": 162, "96": 141, "144": 111, "102": 141, "108": 146, "114": 146, "120": 136, "126": 136}, "source_encoding": "ascii", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/base.htm", "uri": "base.htm"}
+{"source_encoding": "ascii", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/base.htm", "line_map": {"132": 113, "138": 113, "16": 4, "18": 0, "150": 127, "156": 150, "36": 2, "37": 4, "38": 5, "42": 5, "43": 17, "44": 26, "45": 26, "46": 29, "47": 29, "48": 36, "49": 36, "50": 36, "51": 42, "52": 79, "53": 80, "54": 83, "55": 83, "56": 91, "57": 92, "58": 103, "59": 110, "64": 118, "65": 124, "70": 129, "71": 135, "76": 140, "81": 145, "86": 150, "87": 156, "88": 164, "89": 164, "90": 164, "96": 148, "144": 127, "102": 148, "108": 143, "114": 143, "120": 138, "126": 138}, "uri": "base.htm"}
 __M_END_METADATA
 """
