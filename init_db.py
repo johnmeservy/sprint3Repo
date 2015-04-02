@@ -194,8 +194,8 @@ for data in [
 
 # populating data for item
 for data in [
-    {'name': 'Rental Item 1', 'description': 'Description 1', 'item_value': '5.00', 'standard_rental_price': '3.00', 'is_rentable': 'TRUE', 'owner_id': '1'},
-    {'name': 'Rental Item 2', 'description': 'Description 2', 'item_value': '5.00', 'standard_rental_price': '3.00', 'is_rentable': 'TRUE', 'owner_id': '1'},
+    {'amount_due': '43.42', 'name': 'Rental Item 1', 'description': 'Description 1', 'item_value': '5.00', 'standard_rental_price': '3.00', 'is_rentable': 'TRUE', 'owner_id': '1'},
+    {'amount_due': '28.15', 'name': 'Rental Item 2', 'description': 'Description 2', 'item_value': '5.00', 'standard_rental_price': '3.00', 'is_rentable': 'TRUE', 'owner_id': '1'},
 ]:
 
     d = hmod.Rental()
@@ -238,19 +238,19 @@ for data in [
 
 
 for data in [
-    {'returned': 'False', 'name': 'Cannonball', 'description': 'Weapons', 'current_price': '48.99', 'photo': 'product1.jpg'},
-    {'returned': 'False', 'name': 'Pistol', 'description': 'Weapons', 'current_price': '5.43', 'photo': 'product2.jpg'},
-    {'returned': 'False', 'name': 'Waistcoat', 'description': 'Clothing', 'current_price': '8.63', 'photo': 'product3.jpg'},
-    {'returned': 'False', 'name': 'Mayflower', 'description': 'Artifacts', 'current_price': '.32', 'photo': 'product4.jpg'},
-    {'returned': 'False', 'name': 'Bullets', 'description': 'Weapons', 'current_price': '227.49', 'photo': 'product5.jpg'},
-    {'returned': 'False', 'name': 'Gun Powder', 'description': 'Weapons', 'current_price': '1.25', 'photo': 'product6.jpg'},
-    {'returned': 'False', 'name': 'Printing Press', 'description': 'Artifacts', 'current_price': '10.99', 'photo': 'product7.jpg'},
-    {'returned': 'False', 'name': 'Pilgrim Hat', 'description': 'Clothing', 'current_price': '19.19', 'photo': 'product8.jpg'},
-    {'returned': 'False', 'name': 'Wig', 'description': 'Clothing', 'current_price': '6.78', 'photo': 'product9.jpg'},
-    {'returned': 'False', 'name': 'Bonnet', 'description': 'Clothing', 'current_price': '4.99', 'photo': 'product10.jpg'},
-    {'returned': 'False', 'name': 'Coins', 'description': 'Collectibles', 'current_price': '67.88', 'photo': 'product11.jpg'},
-    {'returned': 'False', 'name': 'Spectacles', 'description': 'Clothing', 'current_price': '28.73', 'photo': 'product12.jpg'},
-    {'returned': 'False', 'name': 'Sword', 'description': 'Weapons', 'current_price': '87.56', 'photo': 'product13.jpg'},
+    {'name': 'Cannonball', 'description': 'Weapons', 'current_price': '48.99', 'photo': 'product1.jpg'},
+    {'name': 'Pistol', 'description': 'Weapons', 'current_price': '5.43', 'photo': 'product2.jpg'},
+    {'name': 'Waistcoat', 'description': 'Clothing', 'current_price': '8.63', 'photo': 'product3.jpg'},
+    {'name': 'Mayflower', 'description': 'Artifacts', 'current_price': '.32', 'photo': 'product4.jpg'},
+    {'name': 'Bullets', 'description': 'Weapons', 'current_price': '227.49', 'photo': 'product5.jpg'},
+    {'name': 'Gun Powder', 'description': 'Weapons', 'current_price': '1.25', 'photo': 'product6.jpg'},
+    {'name': 'Printing Press', 'description': 'Artifacts', 'current_price': '10.99', 'photo': 'product7.jpg'},
+    {'name': 'Pilgrim Hat', 'description': 'Clothing', 'current_price': '19.19', 'photo': 'product8.jpg'},
+    {'name': 'Wig', 'description': 'Clothing', 'current_price': '6.78', 'photo': 'product9.jpg'},
+    {'name': 'Bonnet', 'description': 'Clothing', 'current_price': '4.99', 'photo': 'product10.jpg'},
+    {'name': 'Coins', 'description': 'Collectibles', 'current_price': '67.88', 'photo': 'product11.jpg'},
+    {'name': 'Spectacles', 'description': 'Clothing', 'current_price': '28.73', 'photo': 'product12.jpg'},
+    {'name': 'Sword', 'description': 'Weapons', 'current_price': '87.56', 'photo': 'product13.jpg'},
 ]:
 
     d = hmod.Item()

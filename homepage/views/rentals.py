@@ -49,7 +49,6 @@ def edit(request):
     form = RentalEditForm(initial={
         'time': rental.time,
         'due_date': rental.due_date,
-        'user': rental.user,
     })
     if request.method == 'POST':
         form = RentalEditForm(request.POST)
@@ -59,6 +58,7 @@ def edit(request):
             rental.time = form.cleaned_data['time']
             rental.due_date = form.cleaned_data['due_date']
             rental.user = form.cleaned_data['user']
+            rental.amount_due = form.cleaned_data['amount_due']
             rental.save()
             return HttpResponseRedirect('/homepage/rentals/')
 
@@ -72,6 +72,7 @@ class RentalEditForm(forms.Form):
     time = forms.DateTimeField(required=True, label="Rental Time", widget=forms.TextInput(attrs={'placeholder': 'Rental Time', 'class': 'form-control'}))
     due_date = forms.DateField(required=True, label="Due Date", widget=forms.TextInput(attrs={'placeholder': 'Due Date', 'class': 'form-control'}))
     user = forms.CharField(required=False, label="User", widget=forms.TextInput(attrs={'placeholder': 'User', 'class': 'form-control'}))
+    amount_due = forms.CharField(required=False, label="Amount Due", widget=forms.TextInput(attrs={'placeholder': 'Amount Due', 'class': 'form-control'}))
 
 
 ##########################################################################

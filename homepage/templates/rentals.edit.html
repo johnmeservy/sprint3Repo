@@ -4,7 +4,7 @@
 
 <%block name="content">
 
-<h2>Edit Rental for: ${ rental.user }</h2>
+<h2>Edit Rental for: ${ rental.id }</h2>
   <form class= "edit_table" method = "POST" >
 
     ## <table id="edit_form">
@@ -20,6 +20,7 @@
 
         <hr>
         <button class="btn btn-success" type="submit">Submit</button>
+        <a href="/homepage/rentals.delete/${ rental.id }/" class="btn btn-warning">Return</button>
         <a class="btn btn-default" href="/homepage/rentals">Cancel</a>
         <a href = "/homepage/rentals.delete/${ rental.id }/" class="btn btn-danger pull-right">Delete</a>
   </form>

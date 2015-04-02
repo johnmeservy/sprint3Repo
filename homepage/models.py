@@ -152,6 +152,8 @@ class Rental(models.Model):
     due_date = models.DateField(null=True)
     discount_percent = models.TextField(null=True)
     rentee = models.ForeignKey(User, null=True)
+    amount_due = models.TextField(max_length=20, null=True)
+    damage_fee = models.TextField(max_length=20, null=True)
     rental_items = models.ManyToManyField('Item', through='RentalItem', null=True)
 
 
