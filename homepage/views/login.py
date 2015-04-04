@@ -7,7 +7,7 @@ import homepage.models as hmod
 from django.shortcuts import redirect
 from django_mako_plus.controller.router import get_renderer
 from django.contrib.auth import authenticate, login, logout
-
+from ldap3 import Server, Connection, AUTH_SIMPLE, STRATEGY_SYNC, GET_ALL_INFO
 
 templater = get_renderer('homepage')
 
@@ -58,3 +58,34 @@ def check_username(request):
 
     return HttpResponse("1")
     return HttpResponse("0")
+
+
+@view_function
+def ldap(request):
+    s = Server('www.cheritage.org', port = 8889, get_info = GET_ALL_INFO)
+    c = Connection(s, auto_bind = True, client_strategy = STRATEGY_SYNC, user='john@cheritage.local', password='Talkerey5260!', authentication=AUTH_SIMPLE, raise_exceptions=False)
+    print(s.info) # display info from the DSE. OID are decoded when recognized by the library
+    print(">>>>> print connection results")
+    print(c.result)
+    print(c.response) #it's okay if this is None
+
+#     s = Server('www.cheritage.org', port=8889, get_info=GET_ALL_INFO)
+# c = Connection(
+#       s,
+#       auto_bind = True,
+#       user = 'dc\John',
+#       password= 'Talkerey5260!',
+#       authentication=AUTH_SIMPLE,
+#       client_strategy=STRATEGY_SYNC
+#     )
+
+# search_results = c.search(
+#   search_base = 'CN=Users,DC=dc,DC=chfound,DC=com',
+#   search_filter = '(objectClass=person)',
+#   attributes = [
+#     'givenName',
+#     'sn',
+#     'mail',]
+#   )
+
+# print(c.response_to_json(search_results))
