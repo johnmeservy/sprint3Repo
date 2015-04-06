@@ -4,13 +4,13 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1426607138.314258
+_modified_time = 1428332791.040113
 _enable_loop = True
 _template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/productlist.viewproduct.html'
 _template_uri = 'productlist.viewproduct.html'
 _source_encoding = 'ascii'
 import os, os.path, re
-_exports = ['content_left', 'content_center', 'content', 'content_right', 'jumbotron']
+_exports = ['jumbotron', 'content_left', 'content', 'content_right', 'content_center']
 
 
 def _mako_get_namespace(context, name):
@@ -30,16 +30,16 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def content_left():
             return render_content_left(context._locals(__M_locals))
-        def content_center():
-            return render_content_center(context._locals(__M_locals))
         def content_right():
             return render_content_right(context._locals(__M_locals))
-        def content():
-            return render_content(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         product = context.get('product', UNDEFINED)
         def jumbotron():
             return render_jumbotron(context._locals(__M_locals))
+        def content():
+            return render_content(context._locals(__M_locals))
+        def content_center():
+            return render_content_center(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'jumbotron'):
@@ -71,11 +71,11 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_left(context,**pageargs):
+def render_jumbotron(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_left():
-            return render_content_left(context)
+        def jumbotron():
+            return render_jumbotron(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -83,11 +83,11 @@ def render_content_left(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_center(context,**pageargs):
+def render_content_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_center():
-            return render_content_center(context)
+        def content_left():
+            return render_content_left(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -141,11 +141,11 @@ def render_content_right(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_jumbotron(context,**pageargs):
+def render_content_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def jumbotron():
-            return render_jumbotron(context)
+        def content_center():
+            return render_content_center(context)
         __M_writer = context.writer()
         __M_writer('\r\n')
         return ''
@@ -155,6 +155,6 @@ def render_jumbotron(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/productlist.viewproduct.html", "uri": "productlist.viewproduct.html", "source_encoding": "ascii", "line_map": {"64": 47, "132": 49, "118": 25, "44": 1, "74": 43, "138": 49, "80": 43, "86": 46, "27": 0, "92": 46, "150": 3, "144": 3, "98": 6, "123": 33, "49": 4, "156": 150, "106": 6, "107": 8, "108": 8, "109": 12, "110": 12, "111": 12, "112": 12, "113": 23, "114": 23, "115": 24, "116": 24, "117": 25, "54": 41, "119": 26, "120": 26, "121": 31, "122": 31, "59": 44, "124": 33, "125": 33, "126": 33}}
+{"line_map": {"64": 47, "132": 49, "118": 25, "44": 1, "74": 3, "138": 49, "80": 3, "86": 43, "27": 0, "92": 43, "150": 46, "144": 46, "98": 6, "123": 33, "49": 4, "156": 150, "106": 6, "107": 8, "108": 8, "109": 12, "110": 12, "111": 12, "112": 12, "113": 23, "114": 23, "115": 24, "116": 24, "117": 25, "54": 41, "119": 26, "120": 26, "121": 31, "122": 31, "59": 44, "124": 33, "125": 33, "126": 33}, "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/productlist.viewproduct.html", "uri": "productlist.viewproduct.html", "source_encoding": "ascii"}
 __M_END_METADATA
 """
