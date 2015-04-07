@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1428183737.700152
+_modified_time = 1428426029.411011
 _enable_loop = True
 _template_filename = 'C:\\Users\\John\\test_dmp\\homepage\\templates/login.loginform.html'
 _template_uri = 'login.loginform.html'
@@ -60,6 +60,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "line_map": {"35": 1, "53": 5, "54": 9, "55": 9, "40": 18, "27": 0, "61": 55, "46": 5}, "uri": "login.loginform.html", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/login.loginform.html"}
+{"source_encoding": "ascii", "uri": "login.loginform.html", "filename": "C:\\Users\\John\\test_dmp\\homepage\\templates/login.loginform.html", "line_map": {"35": 1, "53": 5, "54": 9, "55": 9, "40": 18, "27": 0, "61": 55, "46": 5}}
 __M_END_METADATA
 """
