@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'polymorphic',
     'homepage',
     'password_reset',
+    'easy_maps'
 )
 
 MIDDLEWARE_CLASSES = (
